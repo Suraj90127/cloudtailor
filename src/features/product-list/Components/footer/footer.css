@@ -1,0 +1,59 @@
+.Logo-footer{
+    width: 100px;
+    margin-left: 50px;
+    margin-top: 30px;
+    border-radius: 50%;
+}
+.footer-page{
+    background-color: rgb(107, 139, 218);
+padding-bottom: 20px;
+}
+.product-footer{
+    margin-top: 50px;
+   
+}
+.developer-prod{
+    color: rgb(60, 32, 153);
+    font-size: 20px;
+    margin-bottom: 13px;
+}
+.company-footer{
+    margin-top: 50px;
+    font-size: 20px;
+    color: rgb(60, 32, 153);
+    margin-bottom: 13px;
+}
+.footer-btn{
+    margin-top: 50px;
+    margin-bottom: 13px;
+    margin-left: 20px;
+    background-color:#c93f3f;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100px;
+}
+.footer-btn:hover{
+    transform: scaleX(1.2);
+    background: rgb(44, 92, 235);
+}
+.follow-footer{
+    margin-top: 50px;
+}
+.footer-icon{
+    font-size: 23px;
+    margin: 0 5px;
+    cursor: pointer;
+    margin-top: px;
+}
+.footer-icon:hover{
+    color:rgb(44, 92, 235);
+
+}
+.prod-footer1{
+    cursor: pointer;
+}
+.prod-footer1:hover{
+    color: gray;
+    margin-left: 4px;
+}
