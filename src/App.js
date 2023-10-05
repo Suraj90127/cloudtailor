@@ -20,6 +20,7 @@ import Gallery from "./features/tailorinfo/Gallery";
 import Faqs from "./features/tailorinfo/faqs/Faqs";
 import Map from "./features/tailorinfo/Map";
 import ContactUs from "./features/tailorinfo/ContactUs";
+import Blog from "./features/blog/Blog";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -115,6 +116,10 @@ const router = createBrowserRouter([
   {
     path: "/contactus",
     element: <ContactUs />,
+  },
+  {
+    path: "/blog",
+    element: <Blog />,
   },
 ]);
 

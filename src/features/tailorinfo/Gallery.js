@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Tnavbar from "./Tnavbar";
 import Footer from "../footer/Footer";
 import Subfooter from "../ourstore/Subfooter";
+
+import { GrFormNext } from "react-icons/gr";
+import { IoIosArrowBack } from "react-icons/io";
 
 const Gallerydata = [
   {
@@ -89,7 +92,25 @@ const Gallerydata = [
 ];
 
 const Gallery = () => {
-  const [showModal, setShowModal] = React.useState(false);
+  const [slideNumer, setSlideNumber] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
+
+  const hendelOpenModal = (index) => {
+    setSlideNumber(index);
+    setOpenModal(true);
+  };
+
+  const prevSlide = () => {
+    slideNumer === 0
+      ? setSlideNumber(Gallerydata.length - 1)
+      : setSlideNumber(slideNumer - 1);
+  };
+
+  const nextSlide = () => {
+    slideNumer + 1 === Gallerydata.length
+      ? setSlideNumber(0)
+      : setSlideNumber(slideNumer + 1);
+  };
   return (
     <>
       <div>
@@ -116,83 +137,90 @@ const Gallery = () => {
             {/* This code is product list */}
 
             <div className=" grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-              {Gallerydata.map((product) => (
-                <div key={product.id} className="group relative">
-                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-500 lg:aspect-none group-hover:opacity-75 lg:h-90">
+              {Gallerydata.map((product, index) => (
+                <div className="group relative">
+                  <div
+                    key={index}
+                    className="cursor-pointer aspect-h-1 aspect-w-1 w-full rounded-md bg-gray-500 lg:aspect-none group-hover:opacity-75 lg:h-90"
+                    onClick={() => hendelOpenModal(index)}
+                  >
                     <img
                       src={product.imageSrc}
                       alt={product.imageAlt}
-                      className="h-full w-full object-cover object-center lg:h-96 lg:w-full"
+                      className="cursor-pointer h-full w-full object-cover object-center lg:h-96 lg:w-full"
                     />
-                  </div>
-
-                  {/* model */}
-
-                  <div className="mt-4 flex justify-between">
-                    <div>
-                      <h3 className="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base text-center z-10 opacity-100 text-white">
-                        <button
-                          className="w-full h-full font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                          type="button"
-                          onClick={() => setShowModal(true)}
-                        ></button>
-                        {showModal ? (
-                          <>
-                            <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-                              <div className="relative w-auto my-6 mx-auto max-w-sm">
-                                {/*content*/}
-                                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                                  {/*header*/}
-                                  <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                                    <h3 className="text-3xl font-semibold">
-                                      Modal Title
-                                    </h3>
-                                    <button
-                                      className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                                      onClick={() => setShowModal(false)}
-                                    >
-                                      <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                                        ×
-                                      </span>
-                                    </button>
-                                  </div>
-                                  {/*body*/}
-
-                                  <div className="relative p-6 flex-auto">
-                                    <img src={product?.imageSrc} alt="" />
-                                    {console.log("imh", product)}
-                                  </div>
-
-                                  {/*footer*/}
-                                  <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-                                    <button
-                                      className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                      type="button"
-                                      onClick={() => setShowModal(false)}
-                                    >
-                                      Close
-                                    </button>
-                                    <button
-                                      className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                      type="button"
-                                      onClick={() => setShowModal(false)}
-                                    >
-                                      Save Changes
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-                          </>
-                        ) : null}
-                      </h3>
-                      {/* <p className="mt-1 text-sm text-gray-500">{product.color}</p> */}
-                    </div>
-                    {/* <p className="text-sm font-medium text-gray-900">{product.price}</p> */}
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* model */}
+
+            <div className="mt-4 flex justify-between">
+              <div>
+                <h3 className="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center xl:text-3xl lg:text-2xl md:text-xl sm:text-lg text-base text-center z-10 opacity-100 text-white">
+                  {/* <button
+                      key={index}
+                      className="w-full h-full font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      
+                    >
+                      click
+                    </button> */}
+                  {openModal ? (
+                    <>
+                      <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                        <div className="relative w-auto my-6 mx-auto max-w-sm">
+                          {/*content*/}
+                          <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-[100%] h-[50%] bg-white outline-none focus:outline-none">
+                            {/*header*/}
+                            <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                              <button
+                                className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                onClick={() => setOpenModal(false)}
+                              >
+                                <span className="bg-transparent text-gray-500 hover:text-black h-6 w-6 text-4xl block outline-none focus:outline-none">
+                                  ×
+                                </span>
+                              </button>
+                            </div>
+                            {/*body*/}
+
+                            <div className="relative p-6 flex-auto w-full h-">
+                              <img
+                                src={Gallerydata[slideNumer].imageSrc}
+                                alt=""
+                              />
+                              {/* {console.log("imh", product)} */}
+                            </div>
+
+                            {/*footer*/}
+                            <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                              <button
+                                className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                                onClick={prevSlide}
+                              >
+                                <IoIosArrowBack></IoIosArrowBack>
+                              </button>
+                              <button
+                                className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                                onClick={nextSlide}
+                              >
+                                <GrFormNext></GrFormNext>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                    </>
+                  ) : null}
+                </h3>
+                {/* <p className="mt-1 text-sm text-gray-500">{product.color}</p> */}
+              </div>
+              {/* <p className="text-sm font-medium text-gray-900">{product.price}</p> */}
             </div>
             <h3 className="text-base md:text-lg lg:text-xl xl:text-2xl text-center text-heading-secondary">
               Wish to have a face-to-face interaction with the fashion designer?
@@ -204,8 +232,6 @@ const Gallery = () => {
             <div className="tailor-interaction">
               <div className="col-lg-6 flex my-10 mx-auto sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8">
                 <div className="left-img">
-                  {/* <img src="https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fcloudtailor-cdn.s3.ap-south-1.amazonaws.com%2FBrand-outlet.webp&w=750&q=75" alt='url error'
-            className="rounded-lg" /> */}
                   <div className="flex items-center justify-center absolute z-100">
                     <div className="py-32 px-20 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl tracking-wide text-black-700">
                       Visit our experience centre
@@ -213,8 +239,6 @@ const Gallery = () => {
                   </div>
                 </div>
                 <div className="right-img">
-                  {/* <img src="https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fcloudtailor-cdn.s3.ap-south-1.amazonaws.com%2Fshop-in-shop.webp&w=750&q=75" alt='url error' 
-          className="rounded-lg" /> */}
                   <div className="flex items-center justify-center absolute z-100">
                     <div className="py-32 px-20 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl tracking-wide text-black-700">
                       Visit our experience centre
@@ -240,91 +264,7 @@ const Gallery = () => {
                   </span>
                 </div>
 
-                <div className="md:flex flex-col gap-4 md:gap-6 lg:gap-8">
-                  {/* first section */}
-                  {/* <div className="grid grid-cols-12  items-start lg:items-center gap-2 md:gap-5 lg:gap-10 xl:gap-14">
-                    <div className="col-span-6">
-                      <span className="flex items-center gap-4 py-2">
-                        <p className="hidden lg:flex text-lg font-medium border border-primary-voilet-dark bg-gray-500 text-white w-10 h-10 justify-center items-center rounded-full">
-                          1
-                        </p>
-                        <p className="text-base md:text-lg lg:text-xl xl:text-2xl font-medium lg:font-normal text-primary-matte-black">
-                          Pick your style
-                        </p>
-                      </span>
-                      <span>
-                        <p className="py-2 text-xs md:text-sm lg:text-xl max-w-5xl font-normal text-gray-700">
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Suscipit odit totam assumenda, cumque quod
-                          numquam ratione?
-                        </p>
-                      </span>
-                    </div>
-
-                    <div className="col-span-6">
-                      <img
-                        src="https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fcloudtailor-cdn.s3.ap-south-1.amazonaws.com%2Fhow_it_works%2FPick-your-style.webp&w=1080&q=75"
-                        alt=""
-                      />
-                    </div>
-                  </div> */}
-
-                  {/* second section */}
-                  {/* <div className="grid grid-cols-12  items-start lg:items-center gap-2 md:gap-5 lg:gap-10 xl:gap-14">
-                    <div className="col-span-6">
-                      <img
-                        src="https://t3.ftcdn.net/jpg/00/84/87/80/360_F_84878016_Zs9yLjT1XecTYJXoUH44oErWi9XHMqtl.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div className="col-span-6">
-                      <span className="flex items-center gap-4 py-2">
-                        <p className="hidden lg:flex text-lg font-medium border border-primary-voilet-dark bg-gray-500 text-white w-10 h-10 justify-center items-center rounded-full">
-                          2
-                        </p>
-                        <p className="text-base md:text-lg lg:text-xl xl:text-2xl font-medium lg:font-normal text-primary-matte-black">
-                          Pick your style
-                        </p>
-                      </span>
-                      <span>
-                        <p className="py-2 text-xs md:text-sm lg:text-xl max-w-5xl font-normal text-gray-700">
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Suscipit odit totam assumenda, cumque quod
-                          numquam ratione?
-                        </p>
-                      </span>
-                    </div>
-                  </div> */}
-
-                  {/* third section */}
-
-                  {/* <div className="grid grid-cols-12  items-start lg:items-center gap-2 md:gap-5 lg:gap-10 xl:gap-14">
-                    <div className="col-span-6">
-                      <span className="flex items-center gap-4 py-2">
-                        <p className="hidden lg:flex text-lg font-medium border border-primary-voilet-dark bg-gray-500 text-white w-10 h-10 justify-center items-center rounded-full">
-                          3
-                        </p>
-                        <p className="text-base md:text-lg lg:text-xl xl:text-2xl font-medium lg:font-normal text-primary-matte-black">
-                          Pick your style
-                        </p>
-                      </span>
-                      <span>
-                        <p className="py-2 text-xs md:text-sm lg:text-xl max-w-5xl font-normal text-gray-700">
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Suscipit odit totam assumenda, cumque quod
-                          numquam ratione? Lorem ipsum dolor sit amet
-                          consectetur adipisicing elit. Dolorum, corrupti?
-                        </p>
-                      </span>
-                    </div>
-                    <div className="col-span-6">
-                      <img
-                        src="https://content3.jdmagicbox.com/comp/def_content/tailors/shutterstock-147651662-tailors-1-w1j93.jpg"
-                        alt=""
-                      />
-                    </div>
-                  </div> */}
-                </div>
+                <div className="md:flex flex-col gap-4 md:gap-6 lg:gap-8"></div>
               </div>
             </div>
           </div>

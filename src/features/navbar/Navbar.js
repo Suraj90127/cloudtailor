@@ -18,7 +18,7 @@ const navigation = [
   { name: "HOME", href: "/", current: true },
   { name: "CASUAL", href: "/casual", current: false },
   { name: "FORMAL", href: "/formal", current: false },
-  { name: "BLOG", href: "#", current: false },
+  { name: "BLOG", href: "/blog", current: false },
   { name: "OUR STORE", href: "/ourstore", current: false },
 ];
 const userNavigation = [
@@ -52,9 +52,9 @@ function NavBar({ children }) {
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
-                          <a
+                          <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.href}
                             className={classNames(
                               item.current
                                 ? "bg-red-300 text-white"
@@ -64,7 +64,7 @@ function NavBar({ children }) {
                             aria-current={item.current ? "page" : undefined}
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
