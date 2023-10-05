@@ -17,9 +17,9 @@ const user = {
 const navigation = [
   { name: "HOME", href: "/", current: true },
   { name: "CASUAL", href: "/casual", current: false },
-  { name: "FORMAL", href: "/login", current: false },
+  { name: "FORMAL", href: "/formal", current: false },
   { name: "BLOG", href: "#", current: false },
-  { name: "OUR STORE", href: "#", current: false },
+  { name: "OUR STORE", href: "/ourstore", current: false },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "#" },
@@ -35,11 +35,11 @@ function NavBar({ children }) {
   const navigate = useNavigate();
   return (
     <>
-      <div className="postito min-h-full sticky">
+      <div className="postito min-h-full">
         <Disclosure as="nav" className="bg-blue-600 ">
           {({ open }) => (
             <>
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">

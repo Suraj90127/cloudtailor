@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
-import Footer from "../product-list/Components/footer/Footer";
+import Footer from "../footer/Footer";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import { ProductData } from "../../Data";
 import { Link } from "react-router-dom";

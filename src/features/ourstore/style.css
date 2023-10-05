@@ -1,0 +1,7 @@
+@media screen and (min-width: 480px) and (max-width: 640) {
+ 
+    .nav-button{
+            margin-left: 100px;
+            margin-top: 10px;
+    }
+  }

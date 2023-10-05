@@ -17,7 +17,7 @@ import "./productList.css";
 const products = [
   {
     id: 1,
-    name: "Basic Tee",
+    name: "Blouse",
     href: "/baner",
     imageSrc:
       "https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fct-product-assets.s3.ap-south-1.amazonaws.com%2Fblouse-thumb-260.webp&w=384&q=75",
@@ -27,7 +27,7 @@ const products = [
   },
   {
     id: 2,
-    name: "Basic Tee",
+    name: "Kurta/Kurti",
     href: "#",
     imageSrc:
       "https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fct-product-assets.s3.ap-south-1.amazonaws.com%2Fkurti-thumb-260.webp&w=384&q=75",
@@ -37,60 +37,60 @@ const products = [
   },
   {
     id: 3,
-    name: "Basic Tee",
+    name: "Salbar/Kameez",
     href: "#",
     imageSrc:
-      "https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fct-product-assets.s3.ap-south-1.amazonaws.com%2Fblouse-thumb-260.webp&w=384&q=75",
+      "https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fct-product-assets.s3.ap-south-1.amazonaws.com%2Fsalwarkameez-thumb-340.webp&w=640&q=75",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
   },
   {
     id: 4,
-    name: "Basic Tee",
+    name: "Lehenga",
     href: "#",
     imageSrc:
-      "https://ct-product-assets.s3.ap-south-1.amazonaws.com/kurta-kaftan-0-260.webp",
+      "https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fct-product-assets.s3.ap-south-1.amazonaws.com%2Flehenga-thumb-340.webp&w=640&q=75",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
   },
   {
     id: 5,
-    name: "Basic Tee",
+    name: "Dress",
     href: "#",
     imageSrc:
-      "	https://ct-product-assets.s3.ap-south-1.amazonaws.com/kurta-slit-0-340.webp",
+      "https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fct-product-assets.s3.ap-south-1.amazonaws.com%2Fdress-thumb-340.webp&w=640&q=75",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
   },
   {
     id: 6,
-    name: "Basic Tee",
+    name: "Ready-to-Wear Saree",
     href: "#",
     imageSrc:
-      "https://ct-product-assets.s3.ap-south-1.amazonaws.com/kurta-slit-0-340.webp",
+      "https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fct-product-assets.s3.ap-south-1.amazonaws.com%2Fsaree-thumb-340.webp&w=640&q=75",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
   },
   {
     id: 7,
-    name: "Basic Tee",
+    name: "Shirt",
     href: "#",
     imageSrc:
-      "https://ct-product-assets.s3.ap-south-1.amazonaws.com/kurta-slit-0-340.webp",
+      "https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fct-product-assets.s3.ap-south-1.amazonaws.com%2Fshirt-thumb-340.webp&w=640&q=75",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",
   },
   {
     id: 8,
-    name: "Basic Tee",
+    name: "Jumpsuit",
     href: "#",
     imageSrc:
-      "https://ct-product-assets.s3.ap-south-1.amazonaws.com/kurta-slit-0-340.webp",
+      "https://www.cloudtailor.com/_next/image?url=https%3A%2F%2Fct-product-assets.s3.ap-south-1.amazonaws.com%2Fjumpsuit-thumb-340.webp&w=640&q=75",
     imageAlt: "Front of men's Basic Tee in black.",
     price: "$35",
     color: "Black",

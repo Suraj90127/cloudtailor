@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import Navbar from "../navbar/Navbar";
-import Footer from "../product-list/Components/footer/Footer";
+import Footer from "../footer/Footer";
 import { ProductData } from "../../Data";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UploadDesign = () => {
   const [files, setFile] = useState([]);
   const [message, setMessage] = useState();
+  // console.log(files);
+  const navigate = useNavigate();
   const handleFile = (e) => {
     setMessage("");
     let file = e.target.files;
@@ -24,7 +29,18 @@ const UploadDesign = () => {
   const removeImage = (i) => {
     setFile(files.filter((x) => x.name !== i));
   };
+  console.log(files);
 
+  const hendelClick = () => {
+    if (File) {
+      navigate("/cart");
+
+      toast.success("upload seucessfully!");
+    } else {
+      navigate("/upload-design");
+      toast.error("Plese upload file");
+    }
+  };
   return (
     <>
       <div className="bg-gray-100">
@@ -84,7 +100,7 @@ const UploadDesign = () => {
                         <div key={key} className="overflow-hidden relative">
                           <i
                             onClick={() => {
-                              removeImage(file.name);
+                              removeImage(files.name);
                             }}
                             className="mdi mdi-close absolute right-1 hover:text-white cursor-pointer"
                           ></i>
@@ -101,7 +117,10 @@ const UploadDesign = () => {
             </div>
             {/* Upload Button */}
             <div className="flex items-center justify-center">
-              <button class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-52 mb-5">
+              <button
+                className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-52 mb-5"
+                onClick={hendelClick}
+              >
                 Button
               </button>
             </div>
@@ -255,6 +274,7 @@ const UploadDesign = () => {
         </div>
         <Footer />
       </div>
+      <ToastContainer />
     </>
   );
 };

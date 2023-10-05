@@ -7,16 +7,27 @@ import SignupPage from "./pages/SignupPage";
 import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
-import Footer from "./features/product-list/Components/footer/Footer";
+import Footer from "./features/footer/Footer";
 import CasualPage from "./pages/CasualPage";
-
+import FormalPage from "./pages/FormalPage";
+import OurstorePage from "./pages/OurstorePage";
+import Tailorinfo from "./features/tailorinfo/Tailorinfo";
+import Giftcrd from "./features/tailorinfo/gift_card/Giftcrd";
+import Profile from "./features/tailorinfo/gift_card/Profile";
+import Myaddress from "./features/tailorinfo/gift_card/Myaddress";
+import MyOder from "./features/tailorinfo/gift_card/MyOder";
+import Gallery from "./features/tailorinfo/Gallery";
+import Faqs from "./features/tailorinfo/faqs/Faqs";
+import Map from "./features/tailorinfo/Map";
+import ContactUs from "./features/tailorinfo/ContactUs";
 import {
   createBrowserRouter,
   RouterProvider,
   Route,
   Link,
 } from "react-router-dom";
-import Baner from "./features/baner/Baner";
+import BlouserBanner from "./features/baner/BlouserBanner";
+
 import UploadDesign from "./features/uploaddesign/UploadDesign";
 
 const router = createBrowserRouter([
@@ -54,12 +65,56 @@ const router = createBrowserRouter([
     element: <CasualPage />,
   },
   {
+    path: "/formal",
+    element: <FormalPage />,
+  },
+  {
+    path: "/ourstore",
+    element: <OurstorePage />,
+  },
+  {
     path: "/baner",
-    element: <Baner />,
+    element: <BlouserBanner />,
   },
   {
     path: "/upload-design",
     element: <UploadDesign />,
+  },
+  {
+    path: "/tailorinfo",
+    element: <Tailorinfo />,
+  },
+  {
+    path: "/giftcard",
+    element: <Giftcrd />,
+  },
+  {
+    path: "/giftcard/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/giftcard/my-address",
+    element: <Myaddress />,
+  },
+  {
+    path: "/giftcard/my-order",
+    element: <MyOder />,
+  },
+  {
+    path: "/gallery",
+    element: <Gallery />,
+  },
+  {
+    path: "/faqs",
+    element: <Faqs />,
+  },
+  {
+    path: "/map",
+    element: <Map />,
+  },
+  {
+    path: "/contactus",
+    element: <ContactUs />,
   },
 ]);
 

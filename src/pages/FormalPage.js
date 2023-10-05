@@ -1,17 +1,17 @@
 import Navbar from "../features/navbar/Navbar";
-import Casual from "../features/casual/Casual";
+import Formal from "../features/formal/Formal";
 import Footer from "../features/footer/Footer";
 
-function CasualPage() {
+function FormalPage() {
   return (
     <>
       <div className="bg-gray-100">
         <Navbar />
-        <Casual />
+        <Formal />
         <Footer />
       </div>
     </>
   );
 }
 
-export default CasualPage;
+export default FormalPage;

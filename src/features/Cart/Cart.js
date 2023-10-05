@@ -15,7 +15,7 @@ const products = [
     price: "$90.00",
     quantity: 1,
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
+      "https://ct-product-assets.s3.ap-south-1.amazonaws.com/blouse-princesscut-0-720.webp",
     imageAlt:
       "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
   },
@@ -27,7 +27,7 @@ const products = [
     price: "$32.00",
     quantity: 1,
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
+      "https://ct-product-assets.s3.ap-south-1.amazonaws.com/blouse-princesscut-0-720.webp",
     imageAlt:
       "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
   },
